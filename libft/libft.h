@@ -6,7 +6,7 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:45:51 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/10 12:30:49 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/20 11:06:05 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unitstd.h>
@@ -27,3 +27,4 @@ char	*ft_strnstr(const char *big, const char *little, size_t	len);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
