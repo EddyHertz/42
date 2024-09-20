@@ -6,13 +6,14 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 12:37:41 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/05 13:06:30 by tyossa-e         ###   ########.fr..     */
+/*   Updated: 2024/09/20 17:48:55 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
 
-int	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
