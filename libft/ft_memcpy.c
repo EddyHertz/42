@@ -6,7 +6,7 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 11:46:14 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/10 12:29:19 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/12 13:25:50 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*#include <stdio.h>
@@ -16,12 +16,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (*(char *)&src[i] && i < n)
+	while ((*(char *)(src + i) && i < n))
 	{
-		(*(char *)&dest[i]) = (*(char *)&src[i]);
+		(*(char *)(dest + i)) = (*(char *)(src + i));
 		i++;
 	}
-	(*(char *)&dest[i]) = '\0';
 	return (0);
 }
 /*
