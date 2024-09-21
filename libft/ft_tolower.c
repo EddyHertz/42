@@ -6,11 +6,11 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:39:49 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/06 12:49:12 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:18:20 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_tolower(unsigned char c)
+char	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);

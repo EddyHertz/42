@@ -6,11 +6,11 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 13:26:51 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/05 16:39:49 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:11:19 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(unsigned char c)
+int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 	{

@@ -6,11 +6,11 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:56:00 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/09 18:01:05 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/21 19:16:52 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *str1, const char *str2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 

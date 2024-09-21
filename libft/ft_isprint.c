@@ -6,11 +6,11 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 13:26:51 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/05 19:10:22 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:12:32 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(unsigned char c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 127)
 		return (1);

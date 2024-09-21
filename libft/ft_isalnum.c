@@ -6,11 +6,11 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 13:26:51 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/06 12:04:51 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:10:49 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(unsigned char c)
+int	ft_isalnum(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 	{
