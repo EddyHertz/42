@@ -1,39 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 19:26:01 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/24 15:24:05 by tyossa-e         ###   ########.fr       */
+/*   Created: 2024/09/25 18:57:39 by tyossa-e          #+#    #+#             */
+/*   Updated: 2024/09/25 19:11:36 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t			i;
-	unsigned char	*ss;
-	unsigned char	cc;
-
-	i = 0;
-	cc = (unsigned char)c;
-	ss = (unsigned char *)(s);
-	while (i < n)
-	{
-		if (ss[i] == cc)
-			return (ss + i);
-		i++;
-	}
-	return (NULL);
+	write(fd, &c, 1);
 }
-/*
-int	main(void)
-{
-	char *s = "Hello 42";
-	char *r = memchr(s,'l',8);
-	printf("Standard : %s \n",r);
-	printf("Mine : %s", r);
-	return (0);
-}*/

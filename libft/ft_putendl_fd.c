@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/05 13:26:51 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/23 17:36:58 by tyossa-e         ###   ########.fr       */
+/*   Created: 2024/09/25 21:28:20 by tyossa-e          #+#    #+#             */
+/*   Updated: 2024/09/25 21:42:03 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	else
-		return (0);
+	size_t	i;
+
+	i = 0;
+	while (i < ft_strlen(s))
+	{
+		ft_putchar_fd (s[i], fd);
+		i++;
+	}
+	write (fd, "\n", 1);
 }

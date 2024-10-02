@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 19:26:01 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/24 15:24:05 by tyossa-e         ###   ########.fr       */
+/*   Created: 2024/09/23 12:20:10 by tyossa-e          #+#    #+#             */
+/*   Updated: 2024/09/23 13:00:59 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(const char *s)
 {
-	size_t			i;
-	unsigned char	*ss;
-	unsigned char	cc;
+	int		i;
+	char	*dup;
 
 	i = 0;
-	cc = (unsigned char)c;
-	ss = (unsigned char *)(s);
-	while (i < n)
+	dup = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (dup == NULL)
+		return (NULL);
+	while (s[i] != '\0')
 	{
-		if (ss[i] == cc)
-			return (ss + i);
+		dup[i] = s[i];
 		i++;
 	}
-	return (NULL);
+	dup[i] = '\0';
+	return (dup);
 }
-/*
-int	main(void)
-{
-	char *s = "Hello 42";
-	char *r = memchr(s,'l',8);
-	printf("Standard : %s \n",r);
-	printf("Mine : %s", r);
-	return (0);
-}*/

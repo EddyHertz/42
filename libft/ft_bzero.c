@@ -6,22 +6,21 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 11:10:46 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/10 11:29:24 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/23 15:52:28 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
+	char	*ss;
 
 	i = 0;
-	while (*(char *)&s[i])
+	ss = (char *)s;
+	while (i < n)
 	{
-		while (i < n)
-		{
-			(*(char *)&s[i]) = '\0';
-			i++;
-		}
+		ss[i] = '\0';
 		i++;
 	}
 }

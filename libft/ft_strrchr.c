@@ -6,34 +6,25 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:02:34 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/06 18:46:25 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/23 22:22:25 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_sl(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
-	int	l;
+	int		sl;
+	char	*ss;
 
-	i = 0;
-	l = ft_sl(s);
-	while (s[l] != s[0])
+	sl = ft_strlen(s);
+	ss = (char *)s;
+	while (sl >= 0)
 	{
-		if (s[l] == c)
-			return ((char *)&s[l]);
-		l--;
+		if (ss[sl] == (char)c)
+			return (ss + sl);
+		sl--;
 	}
-	return (0);
+	if (c == '\0')
+		return (ss + sl);
+	return (NULL);
 }

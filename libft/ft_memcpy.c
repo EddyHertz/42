@@ -6,22 +6,28 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 11:46:14 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/12 13:25:50 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:06:15 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*#include <stdio.h>
-#include <string.h>*/
+#include "libft.h"
+
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	size_t		i;
+	char		*d;
+	const char	*s;
 
 	i = 0;
-	while ((*(char *)(src + i) && i < n))
+	d = (char *)dest;
+	s = (const char *)src;
+	if ((!s && !d) && (i < n))
+		return (dest);
+	while (i < n)
 	{
-		(*(char *)(dest + i)) = (*(char *)(src + i));
+		*d++ = *s++;
 		i++;
 	}
-	return (0);
+	return (dest);
 }
 /*
 int	main()

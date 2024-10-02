@@ -6,21 +6,10 @@
 /*   By: tyossa-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:37:17 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/09 18:07:20 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:00:58 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_len(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -28,19 +17,20 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	int		j;
 
 	i = 0;
-	if (little[i] == '\0')
-		return ((char *)&big[i]);
-	while (i < len)
+	if (*little == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i] == little[j] && i < len)
+		while (little[j] && big[i + j] == little[j] && i + j < len)
 		{
-			if (little[j + 1] == '\0')
-				return ((char *)&big[i] - ft_len(little));
-			i++;
-			j++;
+			if (big[i + j] == little[j])
+				j++;
 		}
+		if (little[j] == '\0')
+			return ((char *)(&big[i]));
 		i++;
 	}
-	return ("\0");
+	return (NULL);
 }
+/*Remember i + j is the position of the pointer in big.*/

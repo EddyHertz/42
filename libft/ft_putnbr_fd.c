@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 12:02:13 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/09/24 13:51:51 by tyossa-e         ###   ########.fr       */
+/*   Created: 2024/09/25 20:06:43 by tyossa-e          #+#    #+#             */
+/*   Updated: 2024/09/25 21:14:50 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+	if (n == -2147483648)
+	{
+		ft_putchar_fd ('-', fd);
+		ft_putchar_fd ('2', fd);
+		n = 147483648;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd ('-', fd);
+		n = n * -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd ((n / 10), fd);
+	}
+	ft_putchar_fd ((n % 10) + '0', fd);
 }
