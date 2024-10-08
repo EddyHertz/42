@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CFILES = ft_p.c ft_x.c ft_usputnbr_fd.c ft_strlen.c ft_putstr_fd.c \
-		 ft_putchar_fd.c ft_putnbr_fd.c
+		 ft_putchar_fd.c ft_putnbr_fd.c ft_printf.c
 
 OFILES = $(CFILES:.c=.o)
 
