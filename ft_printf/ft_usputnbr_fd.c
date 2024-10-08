@@ -19,15 +19,13 @@ void	ft_usputnbr_fd(unsigned int n, int fd)
 
 	r = "4294967286";
 	i = 0;
-	if (n < 0)
+
+	while (i < 12)
 	{
-		while (i < 12)
-		{
-			write (1, &r[i], 1);
-			i++;
-		}
-		return ;
+		write (1, &r[i], 1);
+		i++;
 	}
+	return ;
 	if (n > 9)
 	{
 		ft_putnbr_fd ((n / 10), fd);
