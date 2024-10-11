@@ -6,13 +6,14 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 18:57:39 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/08 15:42:03 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:34:45 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd, int count)
 {
 	write(fd, &c, 1);
+	return(count + 0);
 }
