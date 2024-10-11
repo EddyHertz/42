@@ -42,6 +42,6 @@ int	ft_p(void *p, int count)
 	while (hex[i] == '0' && i < 15)
 		i++;
 	write(1, "0x", 2);
-	write(1, hex + i, 16 - i);
-	return (1 + (16 - i));
+	count = write(1, hex + i, 16 - i);
+	return (1 + count);
 }

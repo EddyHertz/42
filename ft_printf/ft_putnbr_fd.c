@@ -12,39 +12,33 @@
 
 #include "ft_printf.h"
 
-int	ft_count(int n, int count)
+static int	ft_putchar_fdd(char c, int fd, int count)
 {
-	while (n != 0)
-	{
-		n = n/10;
-		count++;
-	}
-	return (count);
+	write(fd, &c, 1);
+	return(count + 1);
 }
 
 int	ft_putnbr_fd(int n, int fd, int count)
 {
-	int nn;
-
-	nn = n;
 	if (n == -2147483648)
 	{
-		ft_putchar_fd ('-', fd, 0);
-		ft_putchar_fd ('2', fd, 0);
+		count = ft_putchar_fdd ('-', fd, count);
+		count = ft_putchar_fdd ('2', fd, count);
 		n = 147483648;
-		count = count + 1;
 	}
 	if (n < 0)
 	{
-		ft_putchar_fd ('-', fd, 0);
+		count = ft_putchar_fdd ('-', fd, count);
 		n = n * -1;
-		count++;
 	}
-	if (n > 9)
-	{
-		ft_putnbr_fd ((n / 10), fd, 0);
-		count = count + ft_count (nn, 0);
+	if (n >= 10)
+		count = ft_putnbr_fd((n/10), fd, count);
+	else if (n < 0 && n != -2147483648)
+    {
+        count = ft_putchar_fdd('-', fd, count);
+        count = ft_putchar_fdd((char)(n + '0'), fd, count);
 	}
-	ft_putchar_fd ((n % 10) + '0', fd, 0);
-	return (count - 1);
+	else
+		count = ft_putchar_fdd ((char)(n + '0'), fd, count);
+	return (count);
 }

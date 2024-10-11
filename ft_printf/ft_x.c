@@ -43,8 +43,7 @@ int	ft_x(unsigned int num, int count)
 	base = "0123456789abcdef";
 	i = 15;
 	hex[16] = '\0';
-	if (num < 0)
-		count = (int)negative(num, 0);
+	count = (int)negative(num, 0);
 	while (i >= 0)
 	{
 		hex[i] = base[num % 16];

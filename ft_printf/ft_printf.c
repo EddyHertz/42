@@ -57,7 +57,6 @@ int	ft_printf(const char *format, ...)
 	va_end (ap);
 	return (count);
 }
-
 /*
 #include <stdio.h>
 
@@ -65,13 +64,13 @@ int	main(void)
 
 {
 	int	i;
-	unsigned int	j = -678;
-	void			*p = "123";
-	i = 10;
-	ft_printf("Mine -> d: %d s: %s c: %c per: %% u: %u \n", i, "Hi", 'H', i);
-	printf("Cont -> d: %d s: %s c: %c per: %% u: %u \n", i, "Hi", 'H', i);
-	ft_printf("Mine 2 -> p: %p x: %x X: %X \n", p, j, j);
-	printf("Cont 2 -> p: %p x: %x X: %X \n", p, j, j);
+	int c_ft;
+	int c_p;
+	i = 0;
+	c_ft = ft_printf("Mine -> u: %d \n", i);
+	c_p = printf("Cont -> u: %d \n", i);
+	printf("Count mine -> u: %d \n", c_ft);
+	printf("Count Cont -> u: %d \n", c_p);
 	return (0);
 }
 */
