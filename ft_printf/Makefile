@@ -30,7 +30,7 @@ RANLIB        = ranlib
 LFLAGS += -I.
 
 all    :    $(NAME)
-		@echo Compiling Library "libft.a" File "Only Mandatory Part": $@ ...
+		@echo Compiling Library "libftprintf.a" File "Only Mandatory Part": $@ ...
 
 $(NAME)    :    $(OFILES)
 		@echo Compiling Library File: $@ ...
@@ -47,10 +47,10 @@ clean    :
 
 
 fclean	:	clean
-		@echo Cleaning All ".o & libft.a" Generated Files:
+		@echo Cleaning All ".o & libftprintf.a" Generated Files:
 		$(RM) $(NAME)
 
 re		:	fclean all
-		@echo Cleaning All ".o & libft.a" Generated Files And Remake Everything:
+		@echo Cleaning All ".o & libftprintf.a" Generated Files And Remake Everything:
 
 .PHONY:	all clean fclean re

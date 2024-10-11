@@ -29,6 +29,7 @@ int	ft_usputnbr_fd(unsigned int n, int fd, int count)
 
 	r = "4294967286";
 	i = 0;
+<<<<<<< HEAD
 	nn = n;
 	if (n < 0)
 	{
@@ -39,7 +40,15 @@ int	ft_usputnbr_fd(unsigned int n, int fd, int count)
 		}
 		count = 11;
 		return (count);
+=======
+
+	while (i < 12)
+	{
+		write (1, &r[i], 1);
+		i++;
+>>>>>>> refs/remotes/origin/main
 	}
+	return ;
 	if (n > 9)
 	{
 		ft_putnbr_fd ((n / 10), fd, 0);
