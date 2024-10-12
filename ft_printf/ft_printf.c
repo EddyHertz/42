@@ -44,14 +44,17 @@ int	ft_printf(const char *format, ...)
 	va_start (ap, format);
 	while (format[i] != '\0')
 	{
-		count++;
+		
 		if (format[i] == '%')
 		{
 			i++;
 			count = count + ft_string (format[i], ap);
 		}
 		else
+		{
 			ft_putchar_fd (format[i], 1, 0);
+			count++;
+		}
 		i++;
 	}
 	va_end (ap);

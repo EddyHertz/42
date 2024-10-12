@@ -21,7 +21,7 @@ int		ft_putstr_fd(char *s, int fd, int count);
 int		ft_putnbr_fd(int n, int fd, int count);
 int		ft_usputnbr_fd(unsigned int n, int fd, int count);
 int		ft_p(void *p, int count);
-int		ft_x(unsigned int num, int count);
+int		ft_x(int num, int count);
 size_t	ft_strlen(const char *s);
 int     ft_putchar_fd(char c, int fd, int count);
 

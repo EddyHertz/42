@@ -31,5 +31,5 @@ int	ft_putstr_fd(char *s, int fd, int count)
 			i++;
 		}
 	}
-	return (count - 1);
+	return (count);
 }

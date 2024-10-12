@@ -15,7 +15,7 @@
 int ft_null(void)
 {
 	write(1, "(nil)", 5);
-	return(4);
+	return(5);
 }
 
 int	ft_p(void *p, int count)
@@ -43,5 +43,5 @@ int	ft_p(void *p, int count)
 		i++;
 	write(1, "0x", 2);
 	count = write(1, hex + i, 16 - i);
-	return (1 + count);
+	return (count + 2);
 }

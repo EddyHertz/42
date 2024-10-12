@@ -12,47 +12,26 @@
 
 #include "ft_printf.h"
 
-int	negative(unsigned int num, int count)
+int	ft_x(int num, int count)
 {
 	char			hex[17];
 	char			*base;
 	int				i;
+	unsigned int	usnum;
 
 	base = "0123456789abcdef";
 	i = 15;
 	hex[16] = '\0';
+	usnum = (unsigned int)num;
 	while (i >= 0)
 	{
-		hex[i] = base[num % 16];
-		num /= 16;
+		hex[i] = base[usnum % 16];
+		usnum /= 16;
 		i--;
 	}
 	i = 0;
 	while (hex[i] == '0' && i < 15)
 		i++;
-	count = write(1, hex + i, 16 - i);
-	return (count - 1);
-}
-
-int	ft_x(unsigned int num, int count)
-{
-	char			hex[17];
-	char			*base;
-	int				i;
-
-	base = "0123456789abcdef";
-	i = 15;
-	hex[16] = '\0';
-	count = (int)negative(num, 0);
-	while (i >= 0)
-	{
-		hex[i] = base[num % 16];
-		num /= 16;
-		i--;
-	}
-	i = 0;
-	while (hex[i] == '0' && i < 15)
-		i++;
-	count = write (1, hex + i, (16 - i));
-	return (count - 1);
+	count = count + write(1, hex + i, 16 - i);
+	return (count);
 }
