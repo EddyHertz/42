@@ -29,8 +29,10 @@ int	ft_string(char c, va_list ap)
 		return (ft_usputnbr_fd(va_arg(ap, unsigned int), 1, 0));
 	else if (c == 'p')
 		return (ft_p (va_arg(ap, void *), 0));
-	else if (c == 'x' || c == 'X')
+	else if (c == 'x')
 		return (ft_x (va_arg(ap, unsigned), 0));
+	else if (c == 'X')
+		return (ft_X (va_arg(ap, unsigned), 0));
 	return (0);
 }
 
@@ -44,7 +46,6 @@ int	ft_printf(const char *format, ...)
 	va_start (ap, format);
 	while (format[i] != '\0')
 	{
-		
 		if (format[i] == '%')
 		{
 			i++;
@@ -60,6 +61,7 @@ int	ft_printf(const char *format, ...)
 	va_end (ap);
 	return (count);
 }
+
 /*
 #include <stdio.h>
 
