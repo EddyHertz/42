@@ -12,12 +12,11 @@
 
 #include "ft_printf.h"
 
-int	ft_upper(char c, int count)
+void	ft_upper(char c)
 {
 	if (c >= 'a' && c <= 'z')
 		c = c - 32;
-	count += write (1, &c, 1);
-	return (count);
+	write (1, &c, 1);
 }
 
 int	ft_xx(int num, int count)
@@ -42,7 +41,8 @@ int	ft_xx(int num, int count)
 		i++;
 	while (hex[i])
 	{
-		count += ft_upper ((hex[i]), count);
+		ft_upper (hex[i]);
+		count++;
 		i++;
 	}
 	return (count);
