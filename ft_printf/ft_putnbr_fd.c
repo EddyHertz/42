@@ -6,7 +6,7 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 20:06:43 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/10 16:52:20 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:20:27 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_putnbr_fd(int n, int fd, int count)
 		n = -n;
 	}
 	if (n >= 10)
-		count = ft_putnbr_fd((n/10), fd, count);
+		count = ft_putnbr_fd((n / 10), fd, count);
 	count = ft_putchar_fd ((char)(n % 10 + '0'), fd, count);
 	return (count);
 }

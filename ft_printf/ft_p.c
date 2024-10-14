@@ -6,16 +6,16 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:31:30 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/10 13:46:33 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:34:34 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_null(void)
+int	ft_null(void)
 {
-	write(1, "(nil)", 5);
-	return(5);
+	write (1, "(nil)", 5);
+	return (5);
 }
 
 int	ft_p(void *p, int count)
@@ -31,7 +31,7 @@ int	ft_p(void *p, int count)
 	hex[16] = '\0';
 	count = 0;
 	if (p == NULL)
-		return(ft_null());
+		return (ft_null());
 	while (i >= 0)
 	{
 		hex[i] = base[addr % 16];
@@ -41,7 +41,7 @@ int	ft_p(void *p, int count)
 	i = 0;
 	while (hex[i] == '0' && i < 15)
 		i++;
-	write(1, "0x", 2);
-	count = write(1, hex + i, 16 - i);
+	write (1, "0x", 2);
+	count = write (1, hex + i, 16 - i);
 	return (count + 2);
 }

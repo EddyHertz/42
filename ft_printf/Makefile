@@ -6,12 +6,12 @@
 #    By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 14:44:43 by tyossa-e          #+#    #+#              #
-#    Updated: 2024/10/10 11:16:39 by tyossa-e         ###   ########.fr        #
+#    Updated: 2024/10/14 11:26:30 by tyossa-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFILES = ft_p.c ft_x.c ft_usputnbr_fd.c ft_strlen.c ft_putstr_fd.c \
-		 ft_putchar_fd.c ft_putnbr_fd.c ft_printf.c ft_X.c
+		 ft_putchar_fd.c ft_putnbr_fd.c ft_printf.c ft_xx.c
 
 OFILES = $(CFILES:.c=.o)
 

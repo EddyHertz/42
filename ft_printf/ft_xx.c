@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_X.c                                             :+:      :+:    :+:   */
+/*   ft_xx.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:31:30 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/10 19:12:40 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:40:38 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	ft_upper(char c)
+int	ft_upper(char c, int count)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+		c = c - 32;
+	count += write (1, &c, 1);
+	return (count);
 }
-int	ft_X(int num, int count)
+
+int	ft_xx(int num, int count)
 {
 	char			hex[17];
 	char			*base;
@@ -40,8 +42,7 @@ int	ft_X(int num, int count)
 		i++;
 	while (hex[i])
 	{
-		char upper_c = ft_upper (hex[i]);
-		count +=	write (1, &upper_c, 1);
+		count += ft_upper ((hex[i]), count);
 		i++;
 	}
 	return (count);

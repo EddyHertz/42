@@ -6,7 +6,7 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:08:22 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/10 19:09:14 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:26:20 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	ft_string(char c, va_list ap)
 	else if (c == 's')
 		return (ft_putstr_fd (va_arg(ap, char *), 1, 0));
 	else if (c == 'u')
-		return (ft_usputnbr_fd(va_arg(ap, unsigned int), 1, 0));
+		return (ft_usputnbr_fd (va_arg(ap, unsigned int), 1, 0));
 	else if (c == 'p')
 		return (ft_p (va_arg(ap, void *), 0));
 	else if (c == 'x')
 		return (ft_x (va_arg(ap, unsigned), 0));
 	else if (c == 'X')
-		return (ft_X (va_arg(ap, unsigned), 0));
+		return (ft_xx (va_arg(ap, unsigned), 0));
 	return (0);
 }
 
@@ -41,8 +41,10 @@ int	ft_printf(const char *format, ...)
 {
 	int		i;
 	va_list	ap;
-	int	count = 0;
+	int		count;
+
 	i = 0;
+	count = 0;
 	va_start (ap, format);
 	while (format[i] != '\0')
 	{
