@@ -6,18 +6,12 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 20:06:43 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/14 11:20:27 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:27:03 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
-static int	ft_putchar_fdd(char c, int fd, int count)
-{
-	write(fd, &c, 1);
-	return(count + 1);
-}
-*/
+
 int	ft_putnbr_fd(int n, int fd, int count)
 {
 	if (n == -2147483648)
