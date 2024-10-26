@@ -10,54 +10,59 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "get_next_line.h"
+#include <stdio.h> // Alert !!!
 #include <stdlib.h>
-#include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
 
-size_t ft_strlen(char *s)
+char	*reader(int fd)
 {
-	size_t i = 0;
-	while (s[i] != '\0' && s[i] != '\n')
-		i++;
-	return (i);
-}
-//char	*ft_store()
-char	*get_next_line(int fd)
-{
-	void		*buf;
-	static int	cursor = 0;
-	int			rreturn;
-	int			i;
-
-	i = 0;
-	int BUFFER_SIZE = 5;
-
-	buf = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buf)
-		return NULL;
-	rreturn = read(fd, buf, BUFFER_SIZE);
-	if (rreturn <= 0)
+	char	*txt;
+	char	*buf;
+	
+	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
+		if (buf == NULL)
+			return (NULL);
+	read(fd, buf, BUFFER_SIZE);
+	if (count <= 0)
 	{
 		free(buf);
 		return (NULL);
 	}
-	((char *)buf)[rreturn] = '\0';
-	if (cursor > 0)
-		cursor += ft_strlen((char *)buf);
-	return ((char *)buf + cursor);
+	buf[count] = '\0';
+	txt = buf;
+	return(txt);
+}
+char	*get_next_line(int fd)
+{
+	char	*ln;
+
+	if (fd == -1 || BUFFER_SIZE <= 0)
+		return (NULL);
+	ln = reader(fd);
+	return (ln);
 }
 
 int main(void)
 {
-	int fd = open("text.txt", O_RDWR);
+	int fd;
+	char *line;
+
+	fd = open("text.txt", O_RDONLY);
 	if (fd < 0)
 	{
-		perror("open");
-		return 1;
+		printf("Error");
+		return (-1);
 	}
-	printf("Buffer = %s\n", get_next_line(fd));
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break;
+		printf("%s", line);
+		free (line);
+	}
 	close(fd);
 	return (0);
 }
-
