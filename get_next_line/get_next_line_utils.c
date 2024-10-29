@@ -37,7 +37,6 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0' || (unsigned char)c == 0)
 		return (ss);
-	free (ss);
 	return (NULL);
 }
 char	*ft_strdup(const char *s)
@@ -70,6 +69,7 @@ char	*ft_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
@@ -83,3 +83,4 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	dest[i] = '\0';
 	return (dest);
 }
+

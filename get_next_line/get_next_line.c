@@ -39,6 +39,7 @@ char *reader(int fd, char *leftover)
 	ssize_t	count;
 	char	*buf;
 
+	count = 1;
 	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buf)
 		return (NULL);
@@ -49,20 +50,18 @@ char *reader(int fd, char *leftover)
 		free(buf);
 		return (NULL);
 	}
-	while ((!ft_strchr(leftover, '\n') && (count = read(fd, buf, BUFFER_SIZE)) > 0))
+	while (!ft_strchr(leftover, '\n') && (count > 0))
 	{
+		count = read(fd, buf, BUFFER_SIZE);
 		buf[count] = '\0';
 		leftover = strjoin_free (leftover, buf);
 		if (!leftover)
-		{
 			break;
-		}
 	}
 	free (buf);
 	if (count < 0)
 		return (NULL);
-	else
-		return (leftover);
+	return (leftover);
 }
 
 char *get_ln(const char *leftover)
@@ -78,7 +77,7 @@ char *get_ln(const char *leftover)
 	else
 		line = malloc((i + 1) * sizeof(char));
 	if (!line)
-		return (free (line), NULL);
+		return (NULL);
 	ft_strncpy (line, (char *)leftover, i);
 	if (leftover[i] == '\n')
 	{
@@ -112,10 +111,10 @@ char *get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (free(leftover), NULL);
+		return (NULL);
 	leftover = reader (fd, leftover);
 	if (!leftover)
-		return (free(leftover), NULL);
+		return (free (leftover), NULL);
 	line = get_ln (leftover);
 	leftover = trim_leftover (leftover);
 	if (!leftover && !line[0])
@@ -126,23 +125,22 @@ char *get_next_line(int fd)
 	return (line);
 }
 
-int main(void)
-{
-	int		fd;
-	char	*line;
+// int main(void)
+// {
+// 	int		fd;
+// 	char	*line;
 
-	fd = open("text.txt", O_RDONLY);
-	if (fd < 0)
-	{
-		perror("Error opening file");
-		return 1;
-	}
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf ("%s", line);
-		free (line);
-	}
-	close (fd);
-	return 0;
-}
-
+// 	fd = open("text.txt", O_RDONLY);
+// 	if (fd < 0)
+// 	{
+// 		perror("Error opening file");
+// 		return 1;
+// 	}
+// 	while ((line = get_next_line(fd)) != NULL)
+// 	{
+// 		printf ("%s", line);
+// 		free (line);
+// 	}
+// 	close (fd);
+// 	return 0;
+// }
