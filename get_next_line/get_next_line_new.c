@@ -1,14 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/18 10:35:20 by tyossa-e          #+#    #+#             */
+/*   Updated: 2024/10/23 12:27:55 by tyossa-e         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include <stdio.h> // Remove Later !!
 #include <string.h>
 
 char *strjoin_free(char *s1, const char *s2)
 {
-    size_t len1 = s1 ? strlen(s1) : 0;
-    size_t len2 = strlen(s2);
+    size_t len1 = s1 ? ft_strlen(s1) : 0;
+    size_t len2 = ft_strlen(s2);
     char *joined = malloc((len1 + len2 + 1) * sizeof(char));
     if (!joined) return NULL;
     
