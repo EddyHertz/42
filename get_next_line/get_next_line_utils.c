@@ -6,7 +6,7 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:35:20 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/29 11:27:55 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/29 13:22:05 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,29 @@ char	*ft_strdup(const char *s)
 	dup[i] = '\0';
 	return (dup);
 }
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strcpy(char *dest, char *src)
 {
-	size_t	i;
-	size_t	r;
+	int	i;
 
-	r = ft_strlen(src);
 	i = 0;
-	if (size == 0)
-		return (r);
-	while (src[i] && (i < (size - 1)))
+	while (src[i] != '\0')
 	{
-		dst[i] = src[i];
+		dest[i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (r);
+	dest[i] = '\0';
+	return (dest);
+}
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < n && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
