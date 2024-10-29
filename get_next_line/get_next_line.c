@@ -20,11 +20,12 @@ char	*reader(int fd)
 {
 	char	*txt;
 	char	*buf;
+	int	count;
 	
 	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
 		if (buf == NULL)
 			return (NULL);
-	read(fd, buf, BUFFER_SIZE);
+	count = read(fd, buf, BUFFER_SIZE);
 	if (count <= 0)
 	{
 		free(buf);
@@ -55,11 +56,8 @@ int main(void)
 		printf("Error");
 		return (-1);
 	}
-	while (1)
+	while ((line = get_next_line(fd)) != NULL)
 	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break;
 		printf("%s", line);
 		free (line);
 	}
