@@ -28,7 +28,7 @@ char	*ft_strcpy(char *dest, char *src);
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*strjoin_free(char *s1, const char *s2);
 char	*reader(int fd, char *leftover);
-char	*get_line(const char *leftover);
+char	*get_ln(const char *leftover);
 char	*trim_leftover(char *leftover);
 char	*get_next_line(int fd);
 

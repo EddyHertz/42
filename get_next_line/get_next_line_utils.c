@@ -37,6 +37,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0' || (unsigned char)c == 0)
 		return (ss);
+	free (ss);
 	return (NULL);
 }
 char	*ft_strdup(const char *s)

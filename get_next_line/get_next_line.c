@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h> // Remove Later !!
-#include <string.h>
+#include <stdio.h>
 
 char *strjoin_free(char *s1, const char *s2)
 {
@@ -44,18 +43,20 @@ char *reader(int fd, char *leftover)
 	if (!buf)
 		return (NULL);
     if (!leftover)
-		leftover = strdup ("");
+		leftover = ft_strdup ("");
 	if (!leftover)
 	{
 		free(buf);
 		return (NULL);
 	}
-	while ((!strchr(leftover, '\n') && (count = read(fd, buf, BUFFER_SIZE)) > 0))
+	while ((!ft_strchr(leftover, '\n') && (count = read(fd, buf, BUFFER_SIZE)) > 0))
 	{
 		buf[count] = '\0';
 		leftover = strjoin_free (leftover, buf);
 		if (!leftover)
+		{
 			break;
+		}
 	}
 	free (buf);
 	if (count < 0)
@@ -64,7 +65,7 @@ char *reader(int fd, char *leftover)
 		return (leftover);
 }
 
-char *get_line(const char *leftover)
+char *get_ln(const char *leftover)
 {
 	char	*line;
 	size_t	i;
@@ -77,8 +78,8 @@ char *get_line(const char *leftover)
 	else
 		line = malloc((i + 1) * sizeof(char));
 	if (!line)
-		return (NULL);
-	strncpy (line, leftover, i);
+		return (free (line), NULL);
+	ft_strncpy (line, (char *)leftover, i);
 	if (leftover[i] == '\n')
 	{
 		line[i] = '\n';
@@ -94,13 +95,13 @@ char *trim_leftover(char *leftover)
 	char	*new_leftover;
 	char	*newline;
 
-	newline = strchr (leftover, '\n');
+	newline = ft_strchr (leftover, '\n');
 	if (!newline)
 	{
 		free (leftover);
 		return (NULL);
 	}
-	new_leftover = strdup (newline + 1);
+	new_leftover = ft_strdup (newline + 1);
 	free (leftover);
 	return (new_leftover);
 }
@@ -111,11 +112,11 @@ char *get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (free(leftover), NULL);
 	leftover = reader (fd, leftover);
 	if (!leftover)
-		return (NULL);
-	line = get_line (leftover);
+		return (free(leftover), NULL);
+	line = get_ln (leftover);
 	leftover = trim_leftover (leftover);
 	if (!leftover && !line[0])
 	{
@@ -144,3 +145,4 @@ int main(void)
 	close (fd);
 	return 0;
 }
+
