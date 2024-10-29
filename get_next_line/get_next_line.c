@@ -45,11 +45,11 @@ char *reader(int fd, char *leftover)
 		return (NULL);
     if (!leftover)
 		leftover = ft_strdup ("");
-	if (!leftover)
-	{
-		free(buf);
-		return (NULL);
-	}
+	// if (!leftover)
+	// {
+	// 	free(buf);
+	// 	return (NULL);
+	// }
 	while (!ft_strchr(leftover, '\n') && (count > 0))
 	{
 		count = read(fd, buf, BUFFER_SIZE);
@@ -114,7 +114,7 @@ char *get_next_line(int fd)
 		return (NULL);
 	leftover = reader (fd, leftover);
 	if (!leftover)
-		return (free (leftover), NULL);
+		return (NULL);
 	line = get_ln (leftover);
 	leftover = trim_leftover (leftover);
 	if (!leftover && !line[0])
