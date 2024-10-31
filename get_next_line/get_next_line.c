@@ -6,7 +6,7 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:35:20 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/29 13:51:03 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/31 16:26:36 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char *strjoin_free(char *s1, const char *s2)
 	len2 = ft_strlen (s2);
 	joined = malloc ((len1 + len2 + 1) * sizeof(char));
 	if (!joined)
-		return (NULL);
+		return (free(joined), NULL);
 	if (s1)
 		ft_strcpy (joined, s1);
 	ft_strcpy (joined + len1, (char *)s2);
@@ -54,9 +54,7 @@ char *reader(int fd, char *leftover)
 		buf[count] = '\0';
 		leftover = strjoin_free (leftover, buf);
 		if (!leftover)
-		{
 			break;
-		}
 	}
 	free (buf);
 	if (count < 0)
@@ -112,16 +110,16 @@ char *get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (free(leftover), NULL);
+		return (NULL);
 	leftover = reader (fd, leftover);
 	if (!leftover)
 		return (free(leftover), NULL);
 	line = get_ln (leftover);
 	leftover = trim_leftover (leftover);
-	if (!leftover && !line[0])
+	if (!leftover) //&& !*line)
 	{
 		free (line);
-		return (NULL);
+		return (free(leftover), NULL);
 	}
 	return (line);
 }
@@ -137,8 +135,11 @@ int main(void)
 		perror("Error opening file");
 		return 1;
 	}
-	while ((line = get_next_line(fd)) != NULL)
+	while (1)
 	{
+		line = get_next_line(fd);
+		if (!line)
+			return (free(line), 0);
 		printf ("%s", line);
 		free (line);
 	}
