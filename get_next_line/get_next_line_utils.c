@@ -6,7 +6,7 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:35:20 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/31 16:43:45 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/31 16:11:42 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0' || (unsigned char)c == 0)
 		return (ss);
-<<<<<<< HEAD
 	//free (ss);
-=======
->>>>>>> refs/remotes/origin/main
 	return (NULL);
 }
 char	*ft_strdup(const char *s)
@@ -76,12 +73,7 @@ char	*ft_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-<<<<<<< HEAD
-char	*ft_strncpy (char *dest, char *src, unsigned int n)
-=======
-
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
->>>>>>> refs/remotes/origin/main
 {
 	unsigned int	i;
 
@@ -94,4 +86,3 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	dest[i] = '\0';
 	return (dest);
 }
-
