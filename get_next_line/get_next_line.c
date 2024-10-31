@@ -6,7 +6,7 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:35:20 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/31 16:26:36 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/31 16:42:43 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ char *get_next_line(int fd)
 	if (!leftover) //&& !*line)
 	{
 		free (line);
-		return (free(leftover), NULL);
+		return (free (leftover), NULL);
 	}
 	return (line);
 }

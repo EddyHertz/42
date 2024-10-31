@@ -6,7 +6,7 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:35:20 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/31 16:11:42 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/10/31 16:43:45 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*ft_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strncpy (char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
 
