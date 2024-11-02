@@ -116,14 +116,14 @@ char *get_next_line(int fd)
 		return (free(leftover), NULL);
 	line = get_ln (leftover);
 	leftover = trim_leftover (leftover);
-	if (!leftover) //&& !*line)
+	if (!leftover && !*line)
 	{
 		free (line);
 		return (free(leftover), NULL);
 	}
 	return (line);
 }
-
+/*
 int main(void)
 {
 	int		fd;
@@ -146,4 +146,5 @@ int main(void)
 	close (fd);
 	return 0;
 }
+*/
 
