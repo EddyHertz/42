@@ -39,6 +39,7 @@ char *reader(int fd, char *leftover)
 	ssize_t	count;
 	char	*buf;
 
+	count = 1;
 	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buf)
 		return (NULL);
@@ -54,13 +55,12 @@ char *reader(int fd, char *leftover)
 		buf[count] = '\0';
 		leftover = strjoin_free (leftover, buf);
 		if (!leftover)
-			break;
+			return (free (buf), NULL);
 	}
 	free (buf);
 	if (count < 0)
-		return (NULL);
-	else
-		return (leftover);
+		return (free(leftover), NULL);
+	return (leftover);
 }
 
 char *get_ln(const char *leftover)
@@ -71,10 +71,7 @@ char *get_ln(const char *leftover)
 	i = 0;
 	while (leftover[i] && leftover[i] != '\n')
 		i++;
-	if (leftover[i] == '\n')
-		line = malloc((i + 2) * sizeof(char));
-	else
-		line = malloc((i + 1) * sizeof(char));
+	line = malloc((i + 2) * sizeof(char));
 	if (!line)
 		return (free (line), NULL);
 	ft_strncpy (line, (char *)leftover, i);
@@ -101,6 +98,7 @@ char *trim_leftover(char *leftover)
 	}
 	new_leftover = ft_strdup (newline + 1);
 	free (leftover);
+	leftover = NULL;
 	return (new_leftover);
 }
 
@@ -113,13 +111,13 @@ char *get_next_line(int fd)
 		return (NULL);
 	leftover = reader (fd, leftover);
 	if (!leftover)
-		return (free(leftover), NULL);
+		return (NULL);
 	line = get_ln (leftover);
 	leftover = trim_leftover (leftover);
 	if (!leftover && !*line)
 	{
 		free (line);
-		return (free(leftover), NULL);
+		return (NULL);
 	}
 	return (line);
 }

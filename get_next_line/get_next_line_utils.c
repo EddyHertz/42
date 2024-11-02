@@ -37,7 +37,6 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0' || (unsigned char)c == 0)
 		return (ss);
-	//free (ss);
 	return (NULL);
 }
 char	*ft_strdup(const char *s)
@@ -48,10 +47,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	dup = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!dup)
-		{
-			free (dup);
-			return (NULL);
-		}
+			return (free(dup), NULL);
 	while (s[i] != '\0')
 	{
 		dup[i] = s[i];
