@@ -43,23 +43,24 @@ char *reader(int fd, char *leftover)
 	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buf)
 		return (NULL);
-    if (!leftover)
-		leftover = ft_strdup ("");
 	if (!leftover)
 	{
-		free(buf);
-		return (NULL);
+		leftover = malloc(1 * 1);
+		leftover[0] = 0;
+		if (!leftover)
+			return(free(buf), NULL);
 	}
-	while ((!ft_strchr(leftover, '\n') && (count = read(fd, buf, BUFFER_SIZE)) > 0))
+	while (!ft_strchr(leftover, '\n') && (count > 0))
 	{
+		count = read(fd, buf, BUFFER_SIZE);
+		if (count < 0)
+			return (free(leftover), free(buf), NULL);
 		buf[count] = '\0';
 		leftover = strjoin_free (leftover, buf);
 		if (!leftover)
 			return (free (buf), NULL);
 	}
 	free (buf);
-	if (count < 0)
-		return (free(leftover), NULL);
 	return (leftover);
 }
 
