@@ -26,7 +26,7 @@ char *strjoin_free(char *s1, const char *s2)
 	len2 = ft_strlen (s2);
 	joined = malloc ((len1 + len2 + 1) * sizeof(char));
 	if (!joined)
-		return (free(joined), NULL);
+		return (free(s1), NULL);
 	if (s1)
 		ft_strcpy (joined, s1);
 	ft_strcpy (joined + len1, (char *)s2);
@@ -36,19 +36,19 @@ char *strjoin_free(char *s1, const char *s2)
 
 char *reader(int fd, char *leftover)
 {
-	ssize_t	count;
+ 	ssize_t	count;
 	char	*buf;
 
 	count = 1;
 	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buf)
-		return (NULL);
+		return (free (leftover), NULL);
 	if (!leftover)
 	{
 		leftover = malloc(1 * 1);
-		leftover[0] = 0;
 		if (!leftover)
-			return(free(buf), NULL);
+			return (free(buf), NULL);
+		leftover[0] = '\0';
 	}
 	while (!ft_strchr(leftover, '\n') && (count > 0))
 	{
@@ -114,6 +114,8 @@ char *get_next_line(int fd)
 	if (!leftover)
 		return (NULL);
 	line = get_ln (leftover);
+	if (!line)
+		return (free (leftover), leftover = NULL,  NULL);
 	leftover = trim_leftover (leftover);
 	if (!leftover && !*line)
 	{
@@ -122,7 +124,7 @@ char *get_next_line(int fd)
 	}
 	return (line);
 }
-/*
+/* 
 int main(void)
 {
 	int		fd;
@@ -144,6 +146,7 @@ int main(void)
 	}
 	close (fd);
 	return 0;
-}
-*/
+} */
+
+
 
