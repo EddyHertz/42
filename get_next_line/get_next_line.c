@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char *strjoin_free(char *s1, const char *s2)
 {
@@ -45,7 +44,7 @@ char *reader(int fd, char *leftover)
 		return (free (leftover), NULL);
 	if (!leftover)
 	{
-		leftover = malloc(1 * 1);
+		leftover = malloc(1);
 		if (!leftover)
 			return (free(buf), NULL);
 		leftover[0] = '\0';
@@ -60,8 +59,7 @@ char *reader(int fd, char *leftover)
 		if (!leftover)
 			return (free (buf), NULL);
 	}
-	free (buf);
-	return (leftover);
+	return (free (buf), leftover);
 }
 
 char *get_ln(const char *leftover)
@@ -72,17 +70,23 @@ char *get_ln(const char *leftover)
 	i = 0;
 	while (leftover[i] && leftover[i] != '\n')
 		i++;
-	line = malloc((i + 2) * sizeof(char));
-	if (!line)
-		return (free (line), NULL);
-	ft_strncpy (line, (char *)leftover, i);
 	if (leftover[i] == '\n')
 	{
+		line = malloc((i + 2) * sizeof(char));
+		if (!line)
+			return (free (line), NULL);
+		ft_strncpy (line, (char *)leftover, i); 
 		line[i] = '\n';
 		line[i + 1] = '\0';
 	}
 	else
+	{
+		line = malloc((i + 1) * sizeof(char));
+		if (!line)
+			return (free (line), NULL);
+		ft_strncpy (line, (char *)leftover, i); 
 		line[i] = '\0';
+	}
 	return (line);
 }
 
