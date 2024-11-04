@@ -6,7 +6,7 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:35:20 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/31 16:11:42 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:39:41 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_strchr(const char *s, int c)
 		return (ss);
 	return (NULL);
 }
+
 char	*ft_strdup(const char *s)
 {
 	int		i;
@@ -47,7 +48,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	dup = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!dup)
-			return (free(dup), NULL);
+		return (free(dup), NULL);
 	while (s[i] != '\0')
 	{
 		dup[i] = s[i];
@@ -56,6 +57,7 @@ char	*ft_strdup(const char *s)
 	dup[i] = '\0';
 	return (dup);
 }
+
 char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
@@ -69,6 +71,7 @@ char	*ft_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;

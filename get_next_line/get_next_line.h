@@ -6,22 +6,22 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:35:20 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/29 13:22:24 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:41:51 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE (5)
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
 
-size_t 	ft_strlen(const char *s);
+size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 char	*ft_strcpy(char *dest, char *src);

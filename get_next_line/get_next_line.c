@@ -6,13 +6,13 @@
 /*   By: tyossa-e <tyossa-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:35:20 by tyossa-e          #+#    #+#             */
-/*   Updated: 2024/10/31 16:26:36 by tyossa-e         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:36:59 by tyossa-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *strjoin_free(char *s1, const char *s2)
+char	*strjoin_free(char *s1, const char *s2)
 {
 	char	*joined;
 	size_t	len1;
@@ -33,9 +33,9 @@ char *strjoin_free(char *s1, const char *s2)
 	return (joined);
 }
 
-char *reader(int fd, char *leftover)
+char	*reader(int fd, char *leftover)
 {
- 	ssize_t	count;
+	ssize_t	count;
 	char	*buf;
 
 	count = 1;
@@ -62,7 +62,7 @@ char *reader(int fd, char *leftover)
 	return (free (buf), leftover);
 }
 
-char *get_ln(const char *leftover)
+char	*get_ln(const char *leftover)
 {
 	char	*line;
 	size_t	i;
@@ -75,7 +75,7 @@ char *get_ln(const char *leftover)
 		line = malloc((i + 2) * sizeof(char));
 		if (!line)
 			return (free (line), NULL);
-		ft_strncpy (line, (char *)leftover, i); 
+		ft_strncpy (line, (char *)leftover, i);
 		line[i] = '\n';
 		line[i + 1] = '\0';
 	}
@@ -84,13 +84,13 @@ char *get_ln(const char *leftover)
 		line = malloc((i + 1) * sizeof(char));
 		if (!line)
 			return (free (line), NULL);
-		ft_strncpy (line, (char *)leftover, i); 
+		ft_strncpy (line, (char *)leftover, i);
 		line[i] = '\0';
 	}
 	return (line);
 }
 
-char *trim_leftover(char *leftover)
+char	*trim_leftover(char *leftover)
 {
 	char	*new_leftover;
 	char	*newline;
@@ -107,7 +107,7 @@ char *trim_leftover(char *leftover)
 	return (new_leftover);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*leftover;
 	char		*line;
@@ -119,7 +119,7 @@ char *get_next_line(int fd)
 		return (NULL);
 	line = get_ln (leftover);
 	if (!line)
-		return (free (leftover), leftover = NULL,  NULL);
+		return (free (leftover), leftover = NULL, NULL);
 	leftover = trim_leftover (leftover);
 	if (!leftover && !*line)
 	{
@@ -128,7 +128,7 @@ char *get_next_line(int fd)
 	}
 	return (line);
 }
-/* 
+/*
 int main(void)
 {
 	int		fd;
@@ -151,6 +151,3 @@ int main(void)
 	close (fd);
 	return 0;
 } */
-
-
-
